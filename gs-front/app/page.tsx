@@ -1,103 +1,100 @@
-import Image from "next/image";
+import Link from 'next/link';
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const funcionalidades = [
+    {
+      titulo: 'Registro Simples',
+      descricao: 'Interface intuitiva para cadastrar dados de chuva de forma rápida e eficiente.',
+    },
+    {
+      titulo: 'Análises Visuais',
+      descricao: 'Gráficos e dashboards para visualizar padrões e tendências pluviométricas.',
+    },
+    {
+      titulo: 'Acesso Mobile',
+      descricao: 'Plataforma responsiva que funciona perfeitamente em dispositivos móveis.',
+    },
+    {
+      titulo: 'Dados Abertos',
+      descricao: 'Informações democráticas e acessíveis para toda a comunidade.',
+    },
+  ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  return (
+    <main className="bg-gradient-to-b from-[#1740a0] to-[#0B1120] min-h-screen">
+      <div className="max-w-7xl mx-auto px-6 py-20 text-center">
+        <h1 className="text-5xl font-bold mb-4">
+          Cadastro da <span className="text-blue-500">Chuva</span>
+        </h1>
+        <p className="text-slate-300 mb-8 max-w-2xl mx-auto">
+          Democratizando o acesso a dados pluviométricos para agricultores,
+          pesquisadores, estudantes e órgãos públicos através de uma plataforma
+          simples e moderna.
+        </p>
+        <div className="flex justify-center gap-4 mb-16">
+          <Link
+            href="/registrar"
+            className="bg-blue-600 px-6 py-2 rounded-lg hover:bg-blue-700"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            Registrar Chuva
+          </Link>
+          <Link
+            href="/dashboard"
+            className="bg-slate-900 px-6 py-2 rounded-lg border border-slate-700 hover:bg-slate-800"
           >
-            Read our docs
-          </a>
+            Ver Dashboard
+          </Link>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        <section>
+          <h2 className="text-2xl font-bold mb-6">
+            Funcionalidades Principais
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+            {funcionalidades.map((item) => (
+              <div
+                key={item.titulo}
+                className="bg-slate-800 rounded-lg p-6 border border-slate-700 transition-transform transform hover:scale-105 hover:shadow-lg hover:border-blue-500"
+              >
+                <h3 className="font-semibold text-lg mb-2">{item.titulo}</h3>
+                <p className="text-sm text-slate-400">
+                  {item.descricao}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex flex-col md:flex-row gap-6 items-center mb-16">
+            <div className="flex-1 text-left">
+              <h3 className="text-xl font-semibold mb-4">Para Quem é Útil?</h3>
+              <ul className="space-y-2 text-slate-300">
+                <li>• Agricultores monitorando irrigação</li>
+                <li>• Pesquisadores coletando dados</li>
+                <li>• Municípios planejando infraestrutura</li>
+                <li>• Estudantes em projetos ambientais</li>
+              </ul>
+            </div>
+            <div className="bg-slate-800 p-6 rounded-lg border border-slate-700">
+              <p>📊 <strong>1.250+</strong> Registros</p>
+              <p>🌍 <strong>45+</strong> Cidades</p>
+              <p>👥 <strong>95+</strong> Usuários</p>
+              <p>💯 <strong>100%</strong> Gratuito</p>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <h3 className="text-xl font-bold mb-4">
+              Comece a Contribuir Hoje
+            </h3>
+            <Link
+              href="/registrar"
+              className="bg-blue-600 px-6 py-2 rounded-lg hover:bg-blue-700"
+            >
+              Fazer Primeiro Registro
+            </Link>
+          </div>
+        </section>
+      </div>
+    </main>
   );
 }
